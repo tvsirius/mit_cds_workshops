@@ -1,42 +1,62 @@
-import unittest, random
+import unittest
+import random
 
-from mystery_1 import mystery_1
+from bubble_sort import bubble_sort
 
 
-# from experiment, it was seen that mystery_1 sort the list, modify original list and return it
+# from experiment, it was seen that bubble_sort sort the list, modify original list and return it
 # some glass box test added after formatting the function
 
-class TestMystery_1(unittest.TestCase):
-    def is_sorted(self, l: list):
+class TestBubbleSort(unittest.TestCase):
+    """ A unittest test case for the 'bubble_sort' function.
+
+    This test case covers a variety of scenarios to ensure the correctness of the 'bubble_sort' function,
+    which is expected to sort a list in ascending order in-place and return it.
+
+    It contains tests and assertion tests.
+
+    Helper Methods:
+    - is_sorted: Helper function to check if a list is sorted in ascending order.
+    """
+
+    @staticmethod
+    def is_sorted(l: list):
+        """
+        Helper function to check if list is sorted
+
+        Parameters: l :  List to check
+
+        Returns: True if list is sorted
+        """
         return all(l[i] <= l[i + 1] for i in range(len(l) - 1))
 
     def test_0(self):
         """tests empty list"""
-        self.assertEqual(mystery_1([]), [])
+        self.assertEqual(bubble_sort([]), [])
 
     def test_1(self):
         """tests 1 element list"""
-        self.assertEqual(mystery_1([1]), [1])
+        self.assertEqual(bubble_sort([1]), [1])
 
     def test_2(self):
         """tests some list"""
-        self.assertEqual(mystery_1([1, 0, 10, 4, 2]), [0, 1, 2, 4, 10])
+        self.assertEqual(bubble_sort([1, 0, 10, 4, 2]), [0, 1, 2, 4, 10])
 
     def test_3(self):
         """tests some list"""
-        self.assertEqual(mystery_1([1.0, 0.0, 10.0, 4.0, 2.0]), [0.0, 1.0, 2.0, 4.0, 10.0])
+        self.assertEqual(bubble_sort([1.0, 0.0, 10.0, 4.0, 2.0]), [0.0, 1.0, 2.0, 4.0, 10.0])
 
     def test_4(self):
         """tests some list"""
-        self.assertEqual(mystery_1([100.0, -4, 346, 0, 7, 2, 10]), [-4, 0, 2, 7, 10, 100.0, 346])
+        self.assertEqual(bubble_sort([100.0, -4, 346, 0, 7, 2, 10]), [-4, 0, 2, 7, 10, 100.0, 346])
 
     def test_5(self):
         """tests list with chars"""
-        self.assertEqual(mystery_1(['e', 'f', 'l', 'a', 'b', 'z']), ['a', 'b', 'e', 'f', 'l', 'z'])
+        self.assertEqual(bubble_sort(['e', 'f', 'l', 'a', 'b', 'z']), ['a', 'b', 'e', 'f', 'l', 'z'])
 
     def test_6(self):
         """tests big list with numbers"""
-        self.assertEqual(mystery_1(
+        self.assertEqual(bubble_sort(
             [5, 1, 7, 4, -8, 0, 1, -1, 1, 1, 1, -500, 0, 3, 89, 22, 2, 0, -5, -4, 0, 2, 7, 10, 100.0, 346, 1, 0, 10, 4,
              2, 1.1e10, 5e-10, 5e5, 9e-20, -7e16, 8e100, 6, 2, 7, 4453, 854678457, 23, 7, 5, 8, 2, 1, 1, -634, -7457,
              -6346346, 23, 56, 634]),
@@ -49,26 +69,26 @@ class TestMystery_1(unittest.TestCase):
         L = [5, 1, 7, 4, -8, 0, 1, -1, 1, 1, 1, -500, 0, 3, 89, 22, 2, 0, -5, -4, 0, 2, 7, 10, 100.0, 346, 1, 0, 10, 4,
              2, 1.1e10, 5e-10, 5e5, 9e-20, -7e16, 8e100, 6, 2, 7, 4453, 854678457, 23, 7, 5, 8, 2, 1, 1, -634, -7457,
              -6346346, 23, 56, 634]
-        mystery_1(L)
+        bubble_sort(L)
         self.assertTrue(self.is_sorted(L))
 
     def test_8(self):
         """test random list"""
-        L = [random.randint(-10000000, -10000000) for _ in range(1000)]
+        L = [random.randint(-10000000, 10000000) for _ in range(1000)]
         L_copy = L.copy()
-        mystery_1(L)
+        bubble_sort(L)
         self.assertTrue(sorted(L_copy) == L)
 
     ## ---glass box tests (added after formatting function)
 
     def test_assert1(self):
-        '''test assetion of L is list'''
+        """test assetion of L is list"""
         with self.assertRaises(AssertionError):
-            mystery_1(4)
+            bubble_sort(4)
 
     def test_9(self):
-        '''test sorted list'''
-        self.assertEqual(mystery_1([0.0, 1.0, 2.0, 4.0, 10.0]), [0.0, 1.0, 2.0, 4.0, 10.0])
+        """test sorted list"""
+        self.assertEqual(bubble_sort([0.0, 1.0, 2.0, 4.0, 10.0]), [0.0, 1.0, 2.0, 4.0, 10.0])
 
 
 if __name__ == "__main__":
