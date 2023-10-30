@@ -7,22 +7,22 @@ Created on XX XX XX
 """
 
 
-def filter_collections(task_list: list[list | str | tuple | set], elem) -> list[list | str | tuple | set]:
+def collections_filter_1(task_list: list[list | str | tuple | set], elem) -> list[list | str | tuple | set]:
     """ Return a list of iterables (list,tuples,sets) or strings selected from original list, containing elem
 
     :param task_list: list of iterable sets or strings (if str then elem must be string)
     :param elem: element to
     :return: return a list of iterables containing elem
-    >>> filter_collections([[]],1)
+    >>> collections_filter_1([[]],1)
     []
 
-    >>> filter_collections([[1]],1)
+    >>> collections_filter_1([[1]],1)
     [[1]]
 
-    >>> filter_collections([[1,2],[2,3,4],[3,4,5],[5,6]],3)
+    >>> collections_filter_1([[1,2],[2,3,4],[3,4,5],[5,6]],3)
     [[2, 3, 4], [3, 4, 5]]
 
-    >>> filter_collections(['abc','bdf','xyz','hfv'],'f')
+    >>> collections_filter_1(['abc','bdf','xyz','hfv'],'f')
     ['bdf', 'hfv']
     """
 

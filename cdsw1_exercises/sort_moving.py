@@ -7,7 +7,7 @@ Created on XX XX XX
 """
 
 
-def sort_appending(task_list: list, result_list: list = None) -> list:
+def sort_moving(task_list: list, result_list: list = None) -> list:
     """ Sort a list task_list and append a sorted list in the end of list result_list (if non empty), and return modified result_list.
     To make just a sort you should call it with result_list=None
 
@@ -15,16 +15,16 @@ def sort_appending(task_list: list, result_list: list = None) -> list:
     :param result_list: List, in the end of which will sorted result_list be appended
     :return: result_list+sorted task_list
 
-    >>> sort_appending([])
+    >>> sort_moving([])
     []
 
-    >>> sort_appending([1])
+    >>> sort_moving([1])
     [1]
 
-    >>> sort_appending([1,8,66,-2,3])
+    >>> sort_moving([1,8,66,-2,3])
     [-2, 1, 3, 8, 66]
 
-    >>> sort_appending(['r','a','z','f'],[1,2,'o'])
+    >>> sort_moving(['r','a','z','f'],[1,2,'o'])
     [1, 2, 'o', 'a', 'f', 'r', 'z']
     """
 
@@ -47,4 +47,4 @@ def sort_appending(task_list: list, result_list: list = None) -> list:
     result_list.append(smaller_element)
 
     # recursion will keep going on until base case len(task_list)==0
-    return sort_appending(task_list, result_list)
+    return sort_moving(task_list, result_list)

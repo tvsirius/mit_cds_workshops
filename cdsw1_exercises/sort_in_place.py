@@ -7,22 +7,22 @@ Created on XX XX XX
 """
 
 
-def bubble_sort(task_list: list) -> list:
+def sort_in_place(task_list: list) -> list:
     """ Sorts a list in place and returns a sorted list
 
     :param task_list: list of elements, that allow comparasions (int, float, char)
     :return: sorted list
 
-    >>> bubble_sort([])
+    >>> sort_in_place([])
     []
 
-    >>> bubble_sort([2])
+    >>> sort_in_place([2])
     [2]
 
-    >>> bubble_sort([1,8,-2,3])
+    >>> sort_in_place([1,8,-2,3])
     [-2, 1, 3, 8]
 
-    >>> bubble_sort(['r','a','z','f'])
+    >>> sort_in_place(['r','a','z','f'])
     ['a', 'f', 'r', 'z']
     """
 

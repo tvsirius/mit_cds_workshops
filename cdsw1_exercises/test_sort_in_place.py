@@ -1,16 +1,16 @@
 import unittest
 import random
 
-from bubble_sort import bubble_sort
+from sort_in_place import sort_in_place
 
 
-# from experiment, it was seen that bubble_sort sort the list, modify original list and return it
+# from experiment, it was seen that sort_in_place sort the list, modify original list and return it
 # some glass box test added after formatting the function
 
-class TestBubbleSort(unittest.TestCase):
-    """ A unittest test case for the 'bubble_sort' function.
+class TestSortInPlace(unittest.TestCase):
+    """ A unittest test case for the 'sort_in_place' function.
 
-    This test case covers a variety of scenarios to ensure the correctness of the 'bubble_sort' function,
+    This test case covers a variety of scenarios to ensure the correctness of the 'sort_in_place' function,
     which is expected to sort a list in ascending order in-place and return it.
 
     It contains tests and assertion tests.
@@ -32,31 +32,31 @@ class TestBubbleSort(unittest.TestCase):
 
     def test_0(self):
         """tests empty list"""
-        self.assertEqual(bubble_sort([]), [])
+        self.assertEqual(sort_in_place([]), [])
 
     def test_1(self):
         """tests 1 element list"""
-        self.assertEqual(bubble_sort([1]), [1])
+        self.assertEqual(sort_in_place([1]), [1])
 
     def test_2(self):
         """tests some list"""
-        self.assertEqual(bubble_sort([1, 0, 10, 4, 2]), [0, 1, 2, 4, 10])
+        self.assertEqual(sort_in_place([1, 0, 10, 4, 2]), [0, 1, 2, 4, 10])
 
     def test_3(self):
         """tests some list"""
-        self.assertEqual(bubble_sort([1.0, 0.0, 10.0, 4.0, 2.0]), [0.0, 1.0, 2.0, 4.0, 10.0])
+        self.assertEqual(sort_in_place([1.0, 0.0, 10.0, 4.0, 2.0]), [0.0, 1.0, 2.0, 4.0, 10.0])
 
     def test_4(self):
         """tests some list"""
-        self.assertEqual(bubble_sort([100.0, -4, 346, 0, 7, 2, 10]), [-4, 0, 2, 7, 10, 100.0, 346])
+        self.assertEqual(sort_in_place([100.0, -4, 346, 0, 7, 2, 10]), [-4, 0, 2, 7, 10, 100.0, 346])
 
     def test_5(self):
         """tests list with chars"""
-        self.assertEqual(bubble_sort(['e', 'f', 'l', 'a', 'b', 'z']), ['a', 'b', 'e', 'f', 'l', 'z'])
+        self.assertEqual(sort_in_place(['e', 'f', 'l', 'a', 'b', 'z']), ['a', 'b', 'e', 'f', 'l', 'z'])
 
     def test_6(self):
         """tests big list with numbers"""
-        self.assertEqual(bubble_sort(
+        self.assertEqual(sort_in_place(
             [5, 1, 7, 4, -8, 0, 1, -1, 1, 1, 1, -500, 0, 3, 89, 22, 2, 0, -5, -4, 0, 2, 7, 10, 100.0, 346, 1, 0, 10, 4,
              2, 1.1e10, 5e-10, 5e5, 9e-20, -7e16, 8e100, 6, 2, 7, 4453, 854678457, 23, 7, 5, 8, 2, 1, 1, -634, -7457,
              -6346346, 23, 56, 634]),
@@ -69,14 +69,14 @@ class TestBubbleSort(unittest.TestCase):
         L = [5, 1, 7, 4, -8, 0, 1, -1, 1, 1, 1, -500, 0, 3, 89, 22, 2, 0, -5, -4, 0, 2, 7, 10, 100.0, 346, 1, 0, 10, 4,
              2, 1.1e10, 5e-10, 5e5, 9e-20, -7e16, 8e100, 6, 2, 7, 4453, 854678457, 23, 7, 5, 8, 2, 1, 1, -634, -7457,
              -6346346, 23, 56, 634]
-        bubble_sort(L)
+        sort_in_place(L)
         self.assertTrue(self.is_sorted(L))
 
     def test_8(self):
         """test random list"""
         L = [random.randint(-10000000, 10000000) for _ in range(1000)]
         L_copy = L.copy()
-        bubble_sort(L)
+        sort_in_place(L)
         self.assertTrue(sorted(L_copy) == L)
 
     ## ---glass box tests (added after formatting function)
@@ -84,11 +84,11 @@ class TestBubbleSort(unittest.TestCase):
     def test_assert1(self):
         """test assetion of L is list"""
         with self.assertRaises(AssertionError):
-            bubble_sort(4)
+            sort_in_place(4)
 
     def test_9(self):
         """test sorted list"""
-        self.assertEqual(bubble_sort([0.0, 1.0, 2.0, 4.0, 10.0]), [0.0, 1.0, 2.0, 4.0, 10.0])
+        self.assertEqual(sort_in_place([0.0, 1.0, 2.0, 4.0, 10.0]), [0.0, 1.0, 2.0, 4.0, 10.0])
 
 
 if __name__ == "__main__":
