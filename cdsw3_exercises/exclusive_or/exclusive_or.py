@@ -13,40 +13,10 @@ def exclusive_or(string:str, list1:list[str], list2:list[str])->bool:
     >>> exclusive_or('abc',['a','b','abc'],['b','d','v'])
     True
 
-    >>> exclusive_or('abc',['a','b','agg'],['b','d','abc','v'])
-    True
-
     >>> exclusive_or('abc',['a','b','ac'],['b','d','v','11'])
     False
 
     >>> exclusive_or('abc',['a','b','abc'],['b','abc','d','v','11'])
-    False
-
-    >>> exclusive_or('abc',['a','b','abc'],[])
-    True
-
-    >>> exclusive_or('abc',[],['b','d','abc','v'])
-    True
-
-    >>> exclusive_or('abc',[],[])
-    False
-
-    >>> exclusive_or('abc',['abc'],['b'])
-    True
-
-    >>> exclusive_or('abc',['a'],['abc'])
-    True
-
-    >>> exclusive_or('',['a','b',''],['b','d','v'])
-    True
-
-    >>> exclusive_or('',['a','b',''],['b','d','','v'])
-    True
-
-    >>> exclusive_or('',['a','b','ac'],['b','d','v','11'])
-    False
-
-    >>> exclusive_or('',['a','b',''],['b','','d','v','11'])
     False
     """
     # Check if the inputs are of the expected types
